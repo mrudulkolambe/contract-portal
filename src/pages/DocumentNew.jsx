@@ -118,7 +118,7 @@ const SecondFormat = () => {
 							</div>
 							<div className='w-full flex flex-col'>
 								<b>Prepared By:</b>
-								<p>{"Connectia Technologies"}</p>
+								<p>{"DSolutions"}</p>
 							</div>
 						</div>
 						{/* <h1 className='text-center text-3xl font-bold uppercase'>Client Name: {formState?.client_name}</h1>
@@ -127,10 +127,10 @@ const SecondFormat = () => {
 							<h4 className='font-bold'>Version {formState?.version}</h4>
 							<h4 className='font-bold'>{formState.date}</h4>
 						</div>
-						<h1 className='text-center text-2xl font-bold'>Submitted By: Connectia Solutions</h1> */}
+						<h1 className='text-center text-2xl font-bold'>Submitted By: DSolutions</h1> */}
 					</section>
 					<section className='px-10 py-10 w-full min-h-screen bg-white flex flex-col gap-y-3'>
-						<p>This Software Development Agreement states the terms and conditions that govern the contractual agreement between <b>Connectia Technologies</b> having his principal place of business at 200 Clock Tower Pl Carmel, California(CA), 93923, (the “Developer”), and {formState.client_name} having its principal place of business at 200 Gainsborough Cir Folsom, California(CA), 95630 (the “Client”) who agrees to be bound by this Agreement.
+						<p>This Software Development Agreement states the terms and conditions that govern the contractual agreement between <b>DSolutions</b> having his principal place of business at 200 Clock Tower Pl Carmel, California(CA), 93923, (the “Developer”), and {formState.client_name} having its principal place of business at 200 Gainsborough Cir Folsom, California(CA), 95630 (the “Client”) who agrees to be bound by this Agreement.
 							<br /><b>WHEREAS</b>, the Client has conceptualized [QUICK DESCRIPTION OF SOFTWARE] {formState.project_name}, which is described in further detail on Exhibit A, and the Developer is a contractor with whom the Client has come to an agreement to develop the Software.
 							<br /><b>NOW, THEREFORE</b>, In consideration of the mutual covenants and promises made by the parties to this Software Development Agreement, the Developer and the Client (individually, each a “Party” and collectively, the “Parties”) covenant and agree as follows:</p>
 						<h2 className='text-2xl font-bold mt-5'>1. Developer Duties</h2>

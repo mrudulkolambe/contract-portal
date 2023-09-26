@@ -116,7 +116,7 @@ const Document = () => {
 							<h4 className='font-bold'>Version {formState?.version}</h4>
 							<h4 className='font-bold'>{formState.date}</h4>
 						</div>
-						<h1 className='text-center text-2xl font-bold'>Submitted By: Connectia Solutions</h1>
+						<h1 className='text-center text-2xl font-bold'>Submitted By: DSolutions</h1>
 					</section>
 					<section className='px-10 py-10 w-full min-h-screen bg-white flex flex-col border-b-2 gap-y-3'>
 						<h2 className='text-xl font-bold uppercase text-center'>Document Release note</h2>

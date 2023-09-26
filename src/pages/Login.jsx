@@ -32,7 +32,6 @@ const Login = () => {
 	return (
 		<main className='h-screen w-screen flex items-center justify-center bg-[#eee]'>
 			<form onSubmit={handleSignup} className='w-[40vw] h-auto bg-white border rounded-lg p-5 gap-3 flex flex-col'>
-				<img src="https://connectiainfotech.in/static/images/logo/logo.png" className='h-16 object-contain' alt="" />
 				<h1 className='text-3xl font-bold text-center mb-3'>Login</h1>
 				<Input required={true} onChange={(e) => { setEmail(e.target.value) }} label={"Email Address"} value={email} placeholder={"Enter your email"} type={"email"} />
 				<Input required={true} onChange={(e) => { setPassword(e.target.value) }} label={"Password"} value={password} placeholder={"Enter your password"} type={"password"} />
