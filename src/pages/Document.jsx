@@ -86,8 +86,9 @@ const Document = () => {
 		<>
 			<main key={id} className='h-screen max-w-full w-full flex'>
 				<form onSubmit={handleSubmit} className={fullscreen ? 'hidden' : 'w-[50vw] h-screen border-r px-20 py-10 bg-gray-100 flex flex-col gap-3'}>
-					<nav className='flex gap-3'>
-						<a className='text-blue-500 font-semibold' href={"/create"}>Create Document</a>
+				<nav className='flex gap-3'>
+						<a className='text-blue-500 font-semibold' href={"/create"}>Draft-1</a>
+						<a className='font-semibold' href={"/draft-2"}>Draft-2</a>
 						<Link className='font-semibold' to={"/contracts"}>Contracts</Link>
 					</nav>
 					<h1 className='text-2xl font-bold text-center mb-4'>Form</h1>
@@ -95,6 +96,7 @@ const Document = () => {
 					<Input required={true} onChange={handleChange} value={formState.version} id={"version"} label={"Version"} placeholder={"Eg. 1.0"} />
 					<Input required={true} onChange={handleChange} value={formState.client_name} id={"client_name"} label={"Client Name"} placeholder={"Enter Client name"} />
 					<Input required={true} onChange={handleChange} value={formState.project_name} id={"project_name"} label={"Project Name"} placeholder={"Enter project name"} />
+					<Input required={true} onChange={handleChange} value={formState?.delivery_date} id={"delivery_date"} label={"Delivery Date"} placeholder={"Enter delivery date"} />
 					<Input required={true} onChange={handleChange} value={formState.project_description} id={"project_description"} label={"Project Description"} placeholder={"Enter project description"} />
 					<Button type={"submit"} loading={loading} text={"Save"} />
 				</form>
