@@ -47,7 +47,7 @@ const Document = () => {
 			addDoc(collection(db, "contracts"), formState)
 				.then((document) => {
 					setLoading(false)
-					navigate(`/contract/${document.id}`)
+					navigate(`/contracts`)
 				})
 				.catch((err) => {
 					setLoading(false)
