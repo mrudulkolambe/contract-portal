@@ -35,13 +35,12 @@ const Contracts = () => {
 					searchResults?.map((contract) => {
 						return <div key={contract?.id} className='bg-gray-100 rounded-lg px-5 py-4'>
 							<div className='flex justify-between'>
-								<p className='font-bold'>Project: {contract?.project_name} (v{contract?.version})</p>
+								<p className='font-bold'>Project: {contract?.companyBName}</p>
 								<p>Date: {contract?.date}</p>
 							</div>
-							<p>Client: {contract?.client_name}</p>
-							<div className='flex gap-3'>
-								<Link className='bg-blue-500 px-3 py-2 rounded-lg text-white font-bold text-xs' to={`/draft-1/${contract.id}`}>Draft-1</Link>
-								<Link className='bg-blue-500 px-3 py-2 rounded-lg text-white font-bold text-xs' to={`/draft-2/${contract.id}`}>Draft-2</Link>
+							<div className='mt-3 flex gap-3'>
+								<Link className='bg-blue-500 px-3 py-2 rounded-lg text-white font-bold text-xs' to={`/draft-1/${contract?.id}`}>Draft-1</Link>
+								<Link className='bg-blue-500 px-3 py-2 rounded-lg text-white font-bold text-xs' to={`/draft-2/${contract?.id}`}>Draft-2</Link>
 							</div>
 						</div>
 					})

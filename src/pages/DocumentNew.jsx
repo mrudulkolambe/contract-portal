@@ -24,10 +24,11 @@ const SecondFormat = () => {
 
 	const initialFormState = {
 		date: "",
-		version: "",
-		client_name: "",
-		project_name: "",
-		project_description: ""
+		companyBName: "",
+		companyBAddress: "",
+		amount: "",
+		startDate: "",
+		endDate: "",
 	}
 
 	const [formState, setFormState] = useState(initialFormState);
@@ -92,12 +93,13 @@ const SecondFormat = () => {
 						<Link className='font-semibold' to={"/contracts"}>Contracts</Link>
 					</nav>
 					<h1 className='text-2xl font-bold text-center mb-4'>Form</h1>
-					<Input required={true} onChange={handleChange} value={formState.date} id={"date"} label={"Date for quotation"} placeholder={"Enter the date"} />
-					<Input required={true} onChange={handleChange} value={formState.version} id={"version"} label={"Version"} placeholder={"Eg. 1.0"} />
-					<Input required={true} onChange={handleChange} value={formState.client_name} id={"client_name"} label={"Client Name"} placeholder={"Enter Client name"} />
-					<Input required={true} onChange={handleChange} value={formState.project_name} id={"project_name"} label={"Project Name"} placeholder={"Enter project name"} />
-					<Input required={true} onChange={handleChange} value={formState?.delivery_date} id={"delivery_date"} label={"Delivery Date"} placeholder={"Enter delivery date"} />
-					<Input required={true} onChange={handleChange} value={formState.project_description} id={"project_description"} label={"Project Description"} placeholder={"Enter project description"} />
+					<Input required={true} onChange={handleChange} value={formState?.date} id={"date"} label={"Date for quotation"} placeholder={"Enter the date"} />
+					<Input required={true} onChange={handleChange} value={formState?.companyBName} id={"companyBName"} label={"Company B Name"} placeholder={"Enter Company B Name"} />
+					<Input required={true} onChange={handleChange} value={formState?.companyBAddress} id={"companyBAddress"} label={"Company B Address"} placeholder={"Enter Company B Address"} />
+					<Input required={true} onChange={handleChange} value={formState?.amount} id={"amount"} label={"Amount"} placeholder={"Enter Amount"} />
+					<Input required={true} onChange={handleChange} value={formState?.startDate} id={"startDate"} label={"Start Date"} placeholder={"Enter Start Date"} />
+					<Input required={true} onChange={handleChange} value={formState?.endDate} id={"endDate"} label={"End Date"} placeholder={"Enter End Date"} />
+					{/* <Input required={true} onChange={handleChange} value={formState?.project_name} id={"project_name"} label={"Project Name"} placeholder={"Enter project name"} /> */}
 					<Button type={"submit"} loading={loading} text={"Save"} />
 				</form>
 
@@ -108,119 +110,92 @@ const SecondFormat = () => {
 							window.print()
 						}} className='text-white bg-gray-800 px-5 py-2 rounded-lg text-sm w-40 text-center'>Print</span>}
 					</div>
-					<section className='px-20 py-10 w-full min-h-screen bg-white flex flex-col justify-around border-b-2'>
-						<img className='w-40 mx-auto' src="/logo-1.png" alt="" />
-						<h1 className='text-center text-4xl font-bold'>{"Software Development Agreement"}</h1>
-						<div className='flex flex-col gap-4'>
-							<div className='w-full flex flex-col'>
-								<b>Prepared For:</b>
-								<p>{formState?.client_name}</p>
-							</div>
-							<div className='w-full flex flex-col'>
-								<b>Prepared By:</b>
-								<p>{"DSolutions"}</p>
-							</div>
-						</div>
-						{/* <h1 className='text-center text-3xl font-bold uppercase'>Client Name: {formState?.client_name}</h1>
-						<div className='flex flex-col items-center justify-center'>
-							<h2 className='text-2xl font-bold'>Project Plan</h2>
-							<h4 className='font-bold'>Version {formState?.version}</h4>
-							<h4 className='font-bold'>{formState.date}</h4>
-						</div>
-						<h1 className='text-center text-2xl font-bold'>Submitted By: DSolutions</h1> */}
+					<section className='text-right px-20 py-10 w-full min-h-screen bg-white flex flex-col border-b-2'>
+						<h1>عقد نموذجي بين شركتين - اتفاق لمدة سنة واحدة</h1>
+						<h1>تمت هذه العقد ("العقد") في تاريخ [{formState?.date}]، (بما فيها تاريخ السريان)، بين:</h1>
+
+
+						<h1>الشركة أ</h1>
+
+						<h1>- الاسم: {"DSolutions"}</h1>
+						<h1>- العنوان: [{"DSolutions Address"}]</h1>
+
+
+						<h1>الشركة ب</h1>
+
+						<h1>- الاسم: [{formState?.companyBName}]</h1>
+						<h1>- العنوان: [{formState?.companyBAddress}]</h1>
 					</section>
-					<section className='px-10 py-10 w-full min-h-screen bg-white flex flex-col gap-y-3'>
-						<p>This Software Development Agreement states the terms and conditions that govern the contractual agreement between <b>DSolutions</b> having his principal place of business at 200 Clock Tower Pl Carmel, California(CA), 93923, (the “Developer”), and {formState.client_name} having its principal place of business at 200 Gainsborough Cir Folsom, California(CA), 95630 (the “Client”) who agrees to be bound by this Agreement.
-							<br /><b>WHEREAS</b>, the Client has conceptualized [QUICK DESCRIPTION OF SOFTWARE] {formState.project_name}, which is described in further detail on Exhibit A, and the Developer is a contractor with whom the Client has come to an agreement to develop the Software.
-							<br /><b>NOW, THEREFORE</b>, In consideration of the mutual covenants and promises made by the parties to this Software Development Agreement, the Developer and the Client (individually, each a “Party” and collectively, the “Parties”) covenant and agree as follows:</p>
-						<h2 className='text-2xl font-bold mt-5'>1. Developer Duties</h2>
-						<p>The Client hereby engages the Developer and the Developer hereby agrees to be engaged by the Client to develop the Software in accordance with the specifications attached hereto as Exhibit A (the “Specifications”).</p>
-						<ul className='pl-3'>
-							<li className='flex gap-4'>
-								<span>1.</span>
-								<span>The Developer shall complete the development of the Software according to the milestones described on the form attached hereto as Exhibit B. In accordance with such milestones, the final product shall be delivered to the Client by {formState?.delivery_date}.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>2.</span>
-								<span>For a period of 20 days after delivery of the final product, the Developer shall provide the Client attention to answer any questions or assist solving any problems with regard to the operation of the Software up to 90 of hours free of charge and billed to the Client at a rate of $40 per hour for any assistance thereafter. The Developer agrees to respond to any reasonable request for assistance made by the Client regarding the Software within 30 days of the request.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>3.</span>
-								<span>Except as expressly provided in this Software Development Agreement, the Client shall not be obligated under this Agreement to provide any other support or assistance to the Developer.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>4.</span>
-								<span>The Client may terminate this Software Development Agreement at any time upon material breach of the terms herein and failure to cure such a breach within 20 days of notification of such a breach.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>5.</span>
-								<span>The Developer shall provide to the Client after the Delivery Date, a cumulative 2 days of training with respect to the operation of the Software if requested by the Client.</span>
-							</li>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>2. Delivery</h2>
-						<p>The Software shall function in accordance with the Specifications on or before the Delivery Date.</p>
-						<ul className='pl-3'>
-							<li className='flex gap-4'>
-								<span>1.</span>
-								<span>If the Software as delivered does not conform with the Specifications, the Client shall within 30 days of the Delivery Date notify the Developer in writing of the ways in which it does not conform with the Specifications. The Developer agrees that upon receiving such notice, it shall make reasonable efforts to correct any non-conformity.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>2.</span>
-								<span>The Client shall provide to the Developer written notice of its finding that the Software conforms to the Specifications within 20 days of the Delivery Date (the “Acceptance Date”) unless it finds that the Software does not conform to the Specifications as described in Section 2(A) herein.</span>
-							</li>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>3. Compensation</h2>
-						<p>The Software shall function in accordance with the Specifications on or before the Delivery Date.</p>
-						<ul className='pl-3'>
-							<p>Compensation. In consideration for the Service, the Client shall pay the Company at the rate of $20 per hour (the “Hourly Rate”), with a maximum total fee for all work under this Software Development Agreement of $50.000. Fees billed under the Hourly Rate shall be due and payable upon the Developer providing the Client with an invoice. Invoices will be provided for work completed by the developer once every 30 days.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>4. Intellectual property rights in the software</h2>
-						<p>The Software shall function in accordance with the Specifications on or before the Delivery Date.</p>
-						<ul className='pl-3'>
-							<p>The Parties acknowledge and agree that the Client will hold all intellectual property rights in the Software including, but not limited to, copyright and trademark rights. The Developer agrees not to claim any such ownership in the Software's intellectual property at any time prior to or after the completion and delivery of the Software to the Client.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>5. Change in specifications</h2>
-						<p>The Software shall function in accordance with the Specifications on or before the Delivery Date.</p>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<p>The Client may request that reasonable changes be made to the Specifications and tasks associated with the implementation of the Specifications. If the Client requests such a change, the Developer will use its best efforts to implement the requested change at no additional expense to the Client and without delaying delivery of the Software.</p>
-							<p>	In the event that the proposed change will, in the sole discretion of the Developer, require a delay in the delivery of the Software or would result in additional expense to the Client, then the Client and the Developer shall confer and the Client may either withdraw the proposed change or require the Developer to deliver the Software with the proposed change and subject to the delay and/or additional expense. The Client agrees and acknowledges that the judgment as to if there will be any delay or additional expense shall be made solely by the Developer.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>6. Confidentiality</h2>
-						<p>The Software shall function in accordance with the Specifications on or before the Delivery Date.</p>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<p>The Developer shall not disclose to any third party the business of the Client, details regarding the Software, including, without limitation any information regarding the Software’s code, the Specifications, or the Client’s business (the “Confidential Information”), (ii) make copies of any Confidential Information or any content based on the concepts contained within the Confidential Information for personal use or for distribution unless requested to do so by the Client, or (iii) use Confidential Information other than solely for the benefit of the Client.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>7. Developer warranties</h2>
-						<p>The Developer represents and warrants to the Client the following:</p>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<li className='flex gap-4'>
-								<span>1.</span>
-								<span>Development and delivery of the Software under this Agreement are not in violation of any other agreement that the Developer has with another party.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>2.</span>
-								<span>The Software will not violate the intellectual property rights of any other party.</span>
-							</li>
-							<li className='flex gap-4'>
-								<span>3.</span>
-								<span>For a period of 10 days after the Delivery Date, the Software shall operate according to the Specifications. If the Software malfunctions or in any way does not operate according to the Specifications within that time, then the Developer shall take any reasonably necessary steps to fix the issue and ensure the Software operates according to the Specifications.</span>
-							</li>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>8. Indemnification</h2>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<p>The Developer agrees to indemnify, defend, and protect the Client from and against all lawsuits and costs of every kind pertaining to the software including reasonable legal fees due to the Developer's infringement of the intellectual rights of any third party.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>9. No modification unless in writing</h2>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<p>No modification of this Agreement shall be valid unless in writing and agreed upon by both Parties.</p>
-						</ul>
-						<h2 className='text-2xl font-bold mt-5'>10. Applicable law</h2>
-						<ul className='pl-3 flex flex-col gap-2'>
-							<p>This Software Development Agreement and the interpretation of its terms shall be governed by and construed in accordance with the laws of the State of California and subject to the exclusive jurisdiction of the federal and state courts located in Alpine, California.</p>
-						</ul>
+					<section className='text-right px-10 py-6 w-full min-h-screen bg-white flex flex-col gap-y-3'>
+
+						<p>(المشار إليها جميعًا باسم "الأطراف").</p>
+
+						<h2 className='text-lg mt-4 font-bold'>1. نطاق العمل</h2>
+						<p className='text-base'>تتفق الشركة أ على تقديم المنتجات / الخدمات التالية للشركة ب:</p>
+						<p className='mt-2'>[وصف مفصل للمنتجات / الخدمات التي يتم تقديمها، بما في ذلك التسليمات والمراحل الزمنية وأية متطلبات محددة.]</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>2. المدة</h2>
+						<p className='text-base'>تتفق الشركة أ على تقديم المنتجات / الخدمات التالية للشركة ب:</p>
+						<p className='mt-2'>سيبدأ هذا العقد في التاريخ الفعّال وسيستمر بكامل قوته وفعاليته لمدة سنة واحدة (المدة)، ما لم يتم إنهاؤه مسبقًا وفقًا للأحكام المحددة في القسم 5 (الإنهاء).</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>3. الدفع</h2>
+						<p className='text-base'>تتفق الشركة أ على تقديم المنتجات / الخدمات التالية للشركة ب:</p>
+						<p className='mt-2'>تتفق الشركة ب على دفع الشركة أ مقابل المنتجات / الخدمات المقدمة على النحو التالي:</p>
+						<p className='mt-2'>- المبلغ المستحق: [{formState?.amount}]</p>
+						<p className='mt-2'>- جدول الدفع: [حدد جدول الدفع، مثل شهريًا أو ربع سنويًا، أو حسب الاتفاق الآخر]</p>
+						<p className='mt-2'>- طريقة الدفع: [حدد طريقة الدفع، مثل التحويل البنكي، الشيك، أو طرق أخرى]</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>4. الملكية الفكرية</h2>
+						<p className='text-base'>أي ملكية فكرية، بما في ذلك ولكن دون اقتصار البراءات، وحقوق النشر، والعلامات التجارية، أو أسرار التجارة، التي</p>
+						<p className='mt-2'> تم تطويرها أو استخدامها أثناء أداء هذا العقد ستكون ملكًا لصاحبها وفقًا للقوانين المعمول بها وأي اتفاقات منفصلة.</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>5. الإنهاء</h2>
+						<p className='text-base'>يمكن لإحدى الأطراف إنهاء هذا العقد بإشعار كتابي إلى الطرف الآخر إذا:</p>
+						<p className='mt-2'>- حدث انتهاك جوهري لهذا العقد، وفشل الطرف المنتهك في تصحيح الانتهاك في غضون [حدد فترة معقولة] أيام بعد تلقيه إشعارًا كتابيًا بالانتهاك.</p>
+						<p className='mt-2'>- أصبحت إحدى الأطراف عجزاً مالياً أو قدمت طلباً للإفلاس.</p>
+					</section>
+					<section className='text-right px-10 py-6 w-full min-h-screen bg-white flex flex-col gap-y-3'>
+						<h2 className='text-lg font-bold'>6. السرية</h2>
+						<p className='text-base'>تتفق الأطراف على الحفاظ على سرية أي معلومات أو بيانات أو مواد تم الكشف عنها خلال مدة هذا العقد وعدم الكشف عن مثل هذه المعلومات لأطراف ثالثة دون موافقة كتابية من الطرف الآخر.</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>7. القانون الساري</h2>
+						<p className='text-base'>سيكون هذا العقد خاضعًا للقوانين والأنظمة السارية في [حدد الولاية القانونية المعنية].</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>8. الاتفاق الكامل</h2>
+						<p className='text-base'>يشكل هذا العقد الاتفاق الكامل بين الأطراف ويحل محل جميع الاتفاقيات والفهم والتمثيلات السابقة، سواء كانت شفهية أو مكتوبة.</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>9. التعديل</h2>
+						<p className='text-base'>يجب أن يكون أي تعديل على هذا العقد كتابيًا وموقعًا من قبل الأطرافين.</p>
+
+
+						<h2 className='text-lg mt-6 font-bold'>10. نسخ متطابقة</h2>
+						<p className='text-base'>يمكن تنفيذ هذا العقد في نسخ متطابقة، وسيعتبر كل منها نسخة أصلية ولكنها ستشكل معًا وثيقة واحدة ونفسها.</p>
+
+
+						<p className='mt-7 text-base'>بشهادة هذا، قامت الأطراف بهذا العقد اعتبارًا من التاريخ الفعّال.</p>
+
+
+						<p className='mt-7 text-base font-bold'>الشركة .</p>
+						<p className=' text-base'>[التوقيع]</p>
+						<p className=' text-base'>[اسم الموقع]</p>
+						<p className=' text-base'>[المسمى الوظيفي]</p>
+						<p className=' text-base'>[التاريخ]</p>
+
+						<p className='mt-7 text-base font-bold'>الشركة </p>
+						<p className=' text-base'>[التوقيع]</p>
+						<p className=' text-base'>[اسم الموقع]</p>
+						<p className=' text-base'>[المسمى الوظيفي]</p>
+						<p className=' text-base'>[التاريخ]</p>
 					</section>
 				</main>
-			</main>
+			</main >
 		</>
 	)
 }
