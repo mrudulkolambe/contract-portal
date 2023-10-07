@@ -115,13 +115,13 @@ const SecondFormat = () => {
 						<h1>تمت هذه العقد ("العقد") في تاريخ [{formState?.date}]، (بما فيها تاريخ السريان)، بين:</h1>
 
 
-						<h1>الشركة أ</h1>
+						<h1 className='mt-6'>الشركة أ</h1>
 
 						<h1>- الاسم: {"DSolutions"}</h1>
 						<h1>- العنوان: [{"DSolutions Address"}]</h1>
 
 
-						<h1>الشركة ب</h1>
+						<h1 className='mt-6'>الشركة ب</h1>
 
 						<h1>- الاسم: [{formState?.companyBName}]</h1>
 						<h1>- العنوان: [{formState?.companyBAddress}]</h1>
